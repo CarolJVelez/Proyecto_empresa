@@ -1,0 +1,23 @@
+server:
+  port: 8083
+  
+spring:
+  application:
+    name: ms-empresa
+    
+      
+          
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/proyecto_empresa
+    username: postgres
+    password: 123456789
+        
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQL10Dialect
+    show-sql: 'true'
+    hibernate:
+      ddl-auto: update
+
