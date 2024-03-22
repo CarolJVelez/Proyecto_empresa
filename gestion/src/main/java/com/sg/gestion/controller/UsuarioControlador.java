@@ -11,13 +11,15 @@ import com.sg.gestion.services.UsuarioService;
 
 @RestController
 public class UsuarioControlador {
-    
-	private UsuarioService usuarioService;
+
+    private final UsuarioService usuarioService;
+
+    public UsuarioControlador(UsuarioService usuarioService) {
+        this.usuarioService = usuarioService;
+    }
 
     @PostMapping("/usuarios")
     public Usuario crearUsuario(@RequestBody UsuarioDTO usuarioDTO) {
         return usuarioService.crearUsuario(usuarioDTO);
     }
-
-
 }

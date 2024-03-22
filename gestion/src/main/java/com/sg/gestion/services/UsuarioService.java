@@ -13,11 +13,15 @@ public class UsuarioService {
 
     private UsuarioRepositorio usuarioRepositorio;
 
+    public UsuarioService(UsuarioRepositorio usuarioRepositorio) {
+        this.usuarioRepositorio = usuarioRepositorio;
+    }
+
     public Usuario crearUsuario(UsuarioDTO usuarioDTO) {
         Usuario usuario = new Usuario();
         usuario.setNombre(usuarioDTO.getNombre());
         usuario.setEmail(usuarioDTO.getEmail());
-        usuario.setContraseña(usuarioDTO.getContraseña());
+        usuario.setContrasena(usuarioDTO.getContrasena());
         usuario.setRol(usuarioDTO.getRol());
         return usuarioRepositorio.save(usuario);
     }
