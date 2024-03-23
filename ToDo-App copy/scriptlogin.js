@@ -49,24 +49,31 @@ window.addEventListener('load', function () {
             console.log(response)
             if (response.ok) {
                 return response.json();
-            } /*else {
-                return response.text(); // Devuelve el mensaje de error como cadena de texto
-            }*/
-            return Promise.reject(response)
+            } else {
+                return Promise.reject(response);
+            }
         })
-        .then(data =>{
+        .then(data => {
             console.log(data);
             console.log(data.jwt);
-
+    
             if (data.jwt) {
                 // Guardamos el dato JWT en LocalStorage (ese token de autenticacion)
-                localStorage.setItem("jwt", JSON.stringify(data.jwt))
-
-                 // redireccionamos a nuestro dashboard de todo
-                 location.replace("crearUsuario.html")
+                localStorage.setItem("jwt", JSON.stringify(data.jwt));
+    
+                // redireccionamos a nuestro dashboard de todo
+                location.replace("crearUsuario.html");
             }
-
         })
-
+        .catch(error => {
+            //console.error("Error al intentar iniciar sesión:", error);
+            if (error.status === 401) {
+                // Manejar el caso de credenciales incorrectas
+                alert("Credenciales incorrectas. Por favor, verifique su email y contraseña.");
+            } else {
+                // Manejar otros errores de red o del servidor
+                alert("Ocurrió un error al iniciar sesión. Por favor, inténtelo de nuevo más tarde.");
+            }
+        });
     };
 });

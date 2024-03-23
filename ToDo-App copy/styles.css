@@ -10,18 +10,18 @@ header {
     text-align: center;
 }
 
-.menu {
+.menu , .usuariosContent{
     list-style-type: none;
     padding: 0;
     margin: 0;
 }
 
-.menu li {
+.menu li, .usuariosContent li {
     display: inline;
     margin-right: 10px;
 }
 
-.menu button {
+.menu button , .usuariosContent button{
     background-color: #007bff;
     color: #fff;
     border: none;
@@ -29,6 +29,8 @@ header {
     border-radius: 5px;
     cursor: pointer;
 }
+
+
 .container_index {
     max-width: 400px;
     margin: 50px auto;
@@ -116,10 +118,13 @@ button[type="submit"]:hover {
 
 .container .button-container {
     text-align: center; 
+    
 }
 
 .container .submit-button,
-.container .return-button {
+.container .return-button,
+.change-button,
+#devolverUsuariosBtn {
     width: 200px; 
     padding: 8px; 
     margin: 5px; 
@@ -131,6 +136,50 @@ button[type="submit"]:hover {
 }
 
 .container .submit-button:hover,
-.container .return-button:hover {
+.container .return-button:hover,
+.container .change-button:hover {
     background-color: #0056b3;
+}
+
+/* Estilos para la tabla */
+#usuariosContainer table {
+    width: 65%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    text-align: center;
+    margin: 0 auto;
+}
+
+/* Estilos para las celdas de la tabla */
+#usuariosContainer th, #usuariosContainer td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+/* Estilos para el encabezado de la tabla */
+#usuariosContainer th {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Estilos alternos para filas */
+#usuariosContainer tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Estilos al pasar el mouse sobre las filas */
+#usuariosContainer tr:hover {
+    background-color: #ddd;
+}
+
+#usuariosContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+#devolverUsuariosBtn {
+    margin-top: 20px;
+    align-self: center; 
 }

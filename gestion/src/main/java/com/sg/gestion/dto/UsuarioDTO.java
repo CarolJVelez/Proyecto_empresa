@@ -10,7 +10,7 @@ import lombok.Data;
 @Data
 @JsonInclude(NON_NULL)//
 public class UsuarioDTO{
-    
+	private Long id;
 	private String nombre;
     private String email;
     private String contrasena;
@@ -40,6 +40,11 @@ public class UsuarioDTO{
 		this.rol = rol;
 	}
 
-    
-    
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 }
