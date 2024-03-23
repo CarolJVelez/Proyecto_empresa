@@ -3,64 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro de Usuarios</title>
+    <title>Registro de Productos</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>Mi productos</h1>
+        <h1>Mi Aplicacion</h1>
         <nav class="menu">
             <ul>
-                <li><button id="usuariosBtn">Usuarios</button></li>
-                <li><button id="productosBtn">Productos</button></li>
+                <li><button id="usuariosBtn" style="display: none;">Usuarios</button></li>
+                <li><button id="usuariosBtn" style="display: none;">Productos</button></li>
             </ul>
+            <h2>Productos</h2>
         </nav>
     </header>
 
-    <nav class="usuariosContent">
+    <nav class="productosContent">
         <ul>
-            <li><button id="listarUsuariosBtn">Listar Usuarios</button>
-            <li><button id="crearUsuarioBtn">Crear Usuario</button>
-            <li><button id="devolverPrincipal">Devolver</button>
+            <li><button id="listarProductosBtn">Listar Productos</button></li>
+            <li><button id="crearProductoBtn">Crear Producto</button></li>
+            <li><button id="devolverPrincipal">Devolver</button></li>
         </ul>
     </nav>
     
 
-    <div id="productosContent" style="display: none;">
+    <div id="usuariosContent" style="display: none;">
         <!-- Contenido de la sección de productos -->
     </div>
 
-    <div id="usuariosContainer">
+    <div id="productoContainer">
     </div>
 
 
     <div class="container" id="formularioContainer" style="display: none;">
-        <h2>Registro de Usuario</h2>
+        <h2>Registro de Producto</h2>
         <form id="registroForm">
             <label for="nombre">Nombre:</label>
             <input type="text" id="nombre" name="nombre" required>
             
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+            <label for="cantidad">Cantidad en bodega:</label>
+            <input type="number" id="cantidad" name="cantidad" required>
             
-            <label for="contrasena">Contraseña:</label>
-            <input type="password" id="contrasena" name="contrasena" required>
+            <label for="descripcion">Descripción:</label>
+            <input type="text" id="descripcion" name="descripcion" required>
             
-            <label for="rol">Rol:</label>
-            <select id="rol" name="rol">
-                <option value="administrador">Administrador</option>
-                <option value="vendedor">Vendedor</option>
-            </select>
+            <label for="modelo">Modelo:</label>
+            <input type="text" id="modelo" name="modelo" required>
+
+            <label for="valorVenta">Valor de Venta:</label>
+            <input type="number" id="valorVenta" name="valorVenta" required>
             
             <div class="button-container">
-                <button class="submit-button" type="submit">Registrar Usuario</button>
+                <button class="submit-button" type="submit">Registrar Producto</button>
                 <button class="return-button" id="devolver">Devolver</button>
-                <button class="change-button" type="button">Guardar Usuario</button>
+                <button class="change-button" type="button">Guardar Producto</button>
             </div>
         </form>
         
     </div>
 
-    <script src="scriptUsuario.js"></script>
+    <script src="scriptProducto.js"></script>
 </body>
 </html>

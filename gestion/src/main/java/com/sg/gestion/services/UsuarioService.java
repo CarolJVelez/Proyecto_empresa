@@ -114,5 +114,9 @@ public class UsuarioService implements UserDetailsService {
     private boolean campoHaCambiado(String valorAnterior, String valorNuevo) {
         return !Objects.equals(valorAnterior, valorNuevo);
     }
+    public boolean existeUsuarioPorEmail(String email) {
+        return usuarioRepositorio.existsByEmail(email);
+    }
+
 
 }

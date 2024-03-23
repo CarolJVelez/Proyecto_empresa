@@ -1,6 +1,7 @@
 package com.sg.gestion.controller;
 
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.sg.gestion.dto.UsuarioDTO;
@@ -39,5 +40,11 @@ public class UsuarioControlador {
     @PutMapping("/usuarios/{id}")
     public Usuario actualizarUsuario(@PathVariable Long id, @RequestBody UsuarioDTO usuarioDTO) {
         return usuarioService.actualizarUsuario(id, usuarioDTO);
+    }
+    @CrossOrigin(origins = {"http://localhost:3000","http://127.0.0.7:5500", "http://127.0.0.1:3000", "http://172.18.144.1:3000"}) // Especifica la URL de frontend    @GetMapping("/usuarios")
+    @GetMapping("/usuarios/verificar")
+    public ResponseEntity<?> verificarExistenciaUsuarioPorEmail(@RequestParam String email) {
+        boolean existeUsuario = usuarioService.existeUsuarioPorEmail(email);
+        return ResponseEntity.ok().body(existeUsuario);
     }
 }

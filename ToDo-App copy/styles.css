@@ -10,18 +10,18 @@ header {
     text-align: center;
 }
 
-.menu , .usuariosContent{
+.menu , .usuariosContent , .productosContent{
     list-style-type: none;
     padding: 0;
     margin: 0;
 }
 
-.menu li, .usuariosContent li {
+.menu li, .usuariosContent li , .productosContent li {
     display: inline;
     margin-right: 10px;
 }
 
-.menu button , .usuariosContent button{
+.menu button , .usuariosContent button , .productosContent button{
     background-color: #007bff;
     color: #fff;
     border: none;
@@ -109,7 +109,7 @@ button[type="submit"]:hover {
 .container input[type="email"],
 .container input[type="password"],
 .container select {
-    width: 100%;
+    width: 95%;
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
@@ -124,7 +124,8 @@ button[type="submit"]:hover {
 .container .submit-button,
 .container .return-button,
 .change-button,
-#devolverUsuariosBtn {
+#devolverUsuariosBtn,
+#devolverProductoBtn {
     width: 200px; 
     padding: 8px; 
     margin: 5px; 
@@ -142,7 +143,8 @@ button[type="submit"]:hover {
 }
 
 /* Estilos para la tabla */
-#usuariosContainer table {
+#usuariosContainer table,
+#productoContainer table {
     width: 65%;
     border-collapse: collapse;
     border-spacing: 0;
@@ -151,35 +153,36 @@ button[type="submit"]:hover {
 }
 
 /* Estilos para las celdas de la tabla */
-#usuariosContainer th, #usuariosContainer td {
+#usuariosContainer th, #usuariosContainer td , #productoContainer td {
     border: 1px solid #ddd;
     padding: 8px;
     text-align: left;
 }
 
 /* Estilos para el encabezado de la tabla */
-#usuariosContainer th {
+#usuariosContainer th, #productoContainer th {
     background-color: #007bff;
     color: white;
 }
 
 /* Estilos alternos para filas */
-#usuariosContainer tr:nth-child(even) {
+#usuariosContainer tr:nth-child(even) , #productoContainer tr:nth-child(even){
     background-color: #f2f2f2;
 }
 
 /* Estilos al pasar el mouse sobre las filas */
-#usuariosContainer tr:hover {
+#usuariosContainer tr:hover , #productoContainer tr:hover {
     background-color: #ddd;
 }
 
-#usuariosContainer {
+#usuariosContainer , #productoContainer{
     display: flex;
     flex-direction: column;
     align-items: center; 
 }
 
-#devolverUsuariosBtn {
+#devolverUsuariosBtn,
+#devolverProductoBtn {
     margin-top: 20px;
     align-self: center; 
 }
