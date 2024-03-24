@@ -3,6 +3,7 @@ package com.sg.gestion.services;
 
 import com.sg.gestion.dto.LoginDTO;
 import com.sg.gestion.seguridad.JwtToken;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -24,6 +25,7 @@ import java.util.stream.Collectors;
 
 
 @Service
+@Log4j2
 public class UsuarioService implements UserDetailsService {
     @Autowired
     private UsuarioRepositorio usuarioRepositorio;

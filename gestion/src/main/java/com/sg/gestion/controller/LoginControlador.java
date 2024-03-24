@@ -2,6 +2,7 @@ package com.sg.gestion.controller;
 
 import com.sg.gestion.dto.LoginDTO;
 import com.sg.gestion.entities.Usuario;
+import com.sg.gestion.exceptions.PrecondicionFallidaException;
 import com.sg.gestion.seguridad.JwtToken;
 import com.sg.gestion.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,6 +59,7 @@ public class LoginControlador {
                 return ResponseEntity.ok(responseBody);
             } else {
                 return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Crredenciales incorrectas");
+
             }
         }else {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("No se encontró ningún usuario con el correo electrónico proporcionado");

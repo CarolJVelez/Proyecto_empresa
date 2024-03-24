@@ -38,7 +38,7 @@ public class ConfiSeguridad extends WebSecurityConfigurerAdapter{
         http.cors().and()
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/login", "/usuarios/**", "/productos/**").permitAll()
+                .antMatchers("/login", "/usuarios/**", "/productos/**","/ventas/**").permitAll()
                 .anyRequest().authenticated()
                 .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 

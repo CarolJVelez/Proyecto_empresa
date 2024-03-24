@@ -12,10 +12,10 @@ public class Producto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nombre;
-    private int cantidadBodega;
+    private Integer cantidadBodega;
     private String descripcion;
     private String modelo;
-    private int valorVenta;
+    private Integer valorVenta;
 
     public Long getId() {
         return id;

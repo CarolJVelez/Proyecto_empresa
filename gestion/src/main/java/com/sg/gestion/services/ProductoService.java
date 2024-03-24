@@ -2,14 +2,19 @@ package com.sg.gestion.services;
 
 import com.sg.gestion.dto.ProductoDTO;
 import com.sg.gestion.entities.Producto;
+import com.sg.gestion.entities.Usuario;
+import com.sg.gestion.exceptions.PrecondicionFallidaException;
 import com.sg.gestion.repositories.ProductoRepositorio;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
+@Log4j2
 public class ProductoService  {
 
     @Autowired
@@ -34,6 +39,30 @@ public class ProductoService  {
                     return productoDTO;
                 })
                         .collect(Collectors.toList());
+    }
+
+    public List<ProductoDTO> listarProductosBy(Long id, String nombre, Integer cantidadBodega, String descripcion,
+                                               String modelo, Integer valorVenta){
+        List<Producto> productos = productoRepositorio.listarProductosBy(id, nombre, cantidadBodega, descripcion,
+                modelo, valorVenta);
+        return productos.stream()
+                .map(producto -> {
+                    ProductoDTO productoDTO = convertirProductoADTO(producto);
+                    productoDTO.setId(producto.getId());
+                    return productoDTO;
+                })
+                .collect(Collectors.toList());
+    }
+
+    public List<ProductoDTO> listarProductosById(Long id){
+        List<Producto> productos = productoRepositorio.listarProductosById(id);
+        return productos.stream()
+                .map(producto -> {
+                    ProductoDTO productoDTO = convertirProductoADTO(producto);
+                    productoDTO.setId(producto.getId());
+                    return productoDTO;
+                })
+                .collect(Collectors.toList());
     }
 
     private ProductoDTO convertirProductoADTO(Producto producto) {
@@ -64,5 +93,19 @@ public class ProductoService  {
 
         // Guardar y devolver el producto actualizado
         return productoRepositorio.save(productoExistente);
+    }
+    public List<ProductoDTO> listarProductosByNombre(String nombre){
+        List<Producto> productos = productoRepositorio.listarProductosByNombre(nombre);
+        if (productos.isEmpty()) {
+            throw new PrecondicionFallidaException("No existe el producto");
+        }
+        return productos.stream()
+                .map(producto -> {
+                    ProductoDTO productoDTO = convertirProductoADTO(producto);
+                    productoDTO.setId(producto.getId());
+
+                    return productoDTO;
+                })
+                .collect(Collectors.toList());
     }
 }
