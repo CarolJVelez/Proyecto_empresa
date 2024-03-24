@@ -73,5 +73,4 @@ public class VentaService implements UserDetailsService {
         return null;
     }
 
-    // Otros métodos del servicio, como buscar ventas, actualizar, eliminar, etc.
 }
